@@ -1,0 +1,14 @@
+**/png/**
+**.pt
+data/**
+!data/loaders/brain_loader.py
+**.tar.gz
+**.zip
+**.nii.gz
+
+model_design/*
+!model_design/validation.py
+!model_design/model_design.ipynb
+
+wandb*
+thor.zip

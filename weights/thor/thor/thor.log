@@ -1,0 +1,139 @@
+INFO:root:------------------------------- DEEP LEARNING FRAMEWORK *IML-COMPAI-DL*  -------------------------------
+INFO:root:[IML-COMPAI-DL::main] Success: Loaded configuration file at: ./projects/thor/configs/brain/thor.yaml
+INFO:root:[Main::setup_experiment]: ################ Starting setup ################
+WARNING:root:Blocksparse is not available: the current GPU does not expose Tensor cores
+INFO:root:[Main::setup_experiment]: ################ Starting experiment * THOR * using method * THOR [Gaussian] AD 350 * ################
+INFO:root:DefaultDataset::init(): Loading 581 files from: ['./data/CAPS_IXI/splits/ixi-t1_atlas_train_2D.csv']
+INFO:root:DefaultDataset::init(): Loading 48 files from: ./data/CAPS_IXI/splits/ixi-t1_atlas_train_2D.csv
+INFO:wandb:Watching
+INFO:root:[Configurator::train]: ################ Starting training ################
+Setting up [LPIPS] perceptual loss: trunk [squeeze], v[0.1], spatial [on]
+Loading model from: /home/tanzl/miniconda3/envs/thor/lib/python3.8/site-packages/lpips/weights/v0.1/squeeze.pth
+****** DIFFUSION: Using DDPM Scheduler ******
+****** DIFFUSION: Using DDPM Scheduler ******
+BrainLoader
+INFO: Early stopping delta 1e-08
+Input size of summery is: (1, 1, 128, 128)
+====================================================================================================
+Layer (type:depth-idx)                             Output Shape              Param #
+====================================================================================================
+DDPM                                               [1, 1, 128, 128]          724,736
+├─DiffusionModelUNet: 1-1                          [1, 1, 128, 128]          --
+│    └─Sequential: 2-1                             [1, 512]                  --
+│    │    └─Linear: 3-1                            [1, 512]                  66,048
+│    │    └─SiLU: 3-2                              [1, 512]                  --
+│    │    └─Linear: 3-3                            [1, 512]                  262,656
+│    └─Convolution: 2-2                            [1, 128, 128, 128]        --
+│    │    └─Conv2d: 3-4                            [1, 128, 128, 128]        1,280
+│    └─ModuleList: 2-3                             --                        --
+│    │    └─DownBlock: 3-5                         [1, 128, 64, 64]          508,928
+│    │    └─AttnDownBlock: 3-6                     [1, 256, 32, 32]          1,904,128
+│    │    └─AttnDownBlock: 3-7                     [1, 256, 32, 32]          1,576,192
+│    └─AttnMidBlock: 2-4                           [1, 256, 32, 32]          --
+│    │    └─ResnetBlock: 3-8                       [1, 256, 32, 32]          1,312,512
+│    │    └─AttentionBlock: 3-9                    [1, 256, 32, 32]          263,680
+│    │    └─ResnetBlock: 3-10                      [1, 256, 32, 32]          1,312,512
+│    └─ModuleList: 2-5                             --                        --
+│    │    └─AttnUpBlock: 3-11                      [1, 256, 64, 64]          5,185,792
+│    │    └─AttnUpBlock: 3-12                      [1, 256, 128, 128]        4,857,856
+│    │    └─UpBlock: 3-13                          [1, 128, 128, 128]        1,248,000
+│    └─Sequential: 2-6                             [1, 1, 128, 128]          --
+│    │    └─GroupNorm: 3-14                        [1, 128, 128, 128]        256
+│    │    └─SiLU: 3-15                             [1, 128, 128, 128]        --
+│    │    └─Convolution: 3-16                      [1, 1, 128, 128]          1,153
+====================================================================================================
+Total params: 19,225,729
+Trainable params: 18,503,233
+Non-trainable params: 722,496
+Total mult-adds (G): 61.95
+====================================================================================================
+Input size (MB): 0.07
+Forward/backward pass size (MB): 685.93
+Params size (MB): 72.16
+Estimated Total Size (MB): 758.15
+====================================================================================================
+Epoch: 0 	Training Loss: 0.654268 , computed in 52.47892618179321 seconds for 576 samples
+Epoch: 1 	Training Loss: 0.137541 , computed in 52.14042901992798 seconds for 576 samples
+Epoch: 2 	Training Loss: 0.051832 , computed in 52.59335207939148 seconds for 576 samples
+Epoch: 3 	Training Loss: 0.040802 , computed in 53.192437171936035 seconds for 576 samples
+Epoch: 4 	Training Loss: 0.035913 , computed in 53.19569969177246 seconds for 576 samples
+Epoch: 5 	Training Loss: 0.035282 , computed in 53.323527812957764 seconds for 576 samples
+Epoch: 6 	Training Loss: 0.037251 , computed in 53.466187477111816 seconds for 576 samples
+Epoch: 7 	Training Loss: 0.037834 , computed in 53.0798761844635 seconds for 576 samples
+Epoch: 8 	Training Loss: 0.036534 , computed in 53.04532337188721 seconds for 576 samples
+Epoch: 9 	Training Loss: 0.042034 , computed in 53.61154770851135 seconds for 576 samples
+Epoch: 10 	Training Loss: 0.035638 , computed in 52.715463399887085 seconds for 576 samples
+Epoch: 11 	Training Loss: 0.034087 , computed in 53.55533289909363 seconds for 576 samples
+Epoch: 12 	Training Loss: 0.033309 , computed in 53.161991119384766 seconds for 576 samples
+Epoch: 13 	Training Loss: 0.036836 , computed in 53.31987428665161 seconds for 576 samples
+Epoch: 14 	Training Loss: 0.034656 , computed in 53.131596088409424 seconds for 576 samples
+Epoch: 15 	Training Loss: 0.041427 , computed in 54.22985482215881 seconds for 576 samples
+Epoch: 16 	Training Loss: 0.033665 , computed in 54.22167229652405 seconds for 576 samples
+Epoch: 17 	Training Loss: 0.033899 , computed in 53.55586075782776 seconds for 576 samples
+Epoch: 18 	Training Loss: 0.031490 , computed in 52.810840368270874 seconds for 576 samples
+Epoch: 19 	Training Loss: 0.033459 , computed in 53.431485176086426 seconds for 576 samples
+Epoch: 20 	Training Loss: 0.032610 , computed in 52.477071046829224 seconds for 576 samples
+Epoch: 21 	Training Loss: 0.033154 , computed in 53.222466468811035 seconds for 576 samples
+Epoch: 22 	Training Loss: 0.033173 , computed in 53.075498819351196 seconds for 576 samples
+Epoch: 23 	Training Loss: 0.033555 , computed in 53.18114686012268 seconds for 576 samples
+Epoch: 24 	Training Loss: 0.028916 , computed in 52.99580669403076 seconds for 576 samples
+Epoch: 25 	Training Loss: 0.038495 , computed in 53.18600940704346 seconds for 576 samples
+Epoch: 26 	Training Loss: 0.034732 , computed in 53.3168420791626 seconds for 576 samples
+Epoch: 27 	Training Loss: 0.035554 , computed in 52.88596820831299 seconds for 576 samples
+Epoch: 28 	Training Loss: 0.033580 , computed in 52.48967242240906 seconds for 576 samples
+Epoch: 29 	Training Loss: 0.030459 , computed in 53.47634243965149 seconds for 576 samples
+Epoch: 30 	Training Loss: 0.035536 , computed in 53.361234188079834 seconds for 576 samples
+Epoch: 31 	Training Loss: 0.031005 , computed in 53.15998888015747 seconds for 576 samples
+Epoch: 32 	Training Loss: 0.033426 , computed in 53.27563142776489 seconds for 576 samples
+Epoch: 33 	Training Loss: 0.034817 , computed in 53.21439743041992 seconds for 576 samples
+Epoch: 34 	Training Loss: 0.030487 , computed in 53.6829731464386 seconds for 576 samples
+Epoch: 35 	Training Loss: 0.029458 , computed in 54.017892360687256 seconds for 576 samples
+Epoch: 36 	Training Loss: 0.031549 , computed in 54.0169358253479 seconds for 576 samples
+Epoch: 37 	Training Loss: 0.034273 , computed in 53.59750413894653 seconds for 576 samples
+Epoch: 38 	Training Loss: 0.033540 , computed in 54.25059628486633 seconds for 576 samples
+Epoch: 39 	Training Loss: 0.027564 , computed in 52.7910590171814 seconds for 576 samples
+Epoch: 40 	Training Loss: 0.033676 , computed in 52.64511275291443 seconds for 576 samples
+Epoch: 41 	Training Loss: 0.032599 , computed in 52.57130146026611 seconds for 576 samples
+Epoch: 42 	Training Loss: 0.032209 , computed in 53.25083112716675 seconds for 576 samples
+Epoch: 43 	Training Loss: 0.029563 , computed in 52.14936184883118 seconds for 576 samples
+Epoch: 44 	Training Loss: 0.031742 , computed in 52.68156409263611 seconds for 576 samples
+Epoch: 45 	Training Loss: 0.032756 , computed in 52.731056690216064 seconds for 576 samples
+Epoch: 46 	Training Loss: 0.031589 , computed in 52.751641511917114 seconds for 576 samples
+Epoch: 47 	Training Loss: 0.030722 , computed in 52.92334747314453 seconds for 576 samples
+Epoch: 48 	Training Loss: 0.026517 , computed in 52.87290668487549 seconds for 576 samples
+Epoch: 49 	Training Loss: 0.028617 , computed in 52.708282232284546 seconds for 576 samples
+Traceback (most recent call last):
+  File "core/Main.py", line 100, in <module>
+    Main(config_file).setup_experiment()
+  File "core/Main.py", line 59, in setup_experiment
+    configurator.start_training(checkpoint)
+  File "./core/Configurator.py", line 63, in start_training
+    trained_model_state, trained_opt_state = self.trainer.train(model_state, opt_state, epoch)
+  File "./projects/thor/DDPMTrainer.py", line 101, in train
+    self.test(self.model.state_dict(), self.val_ds, 'Val', self.optimizer.state_dict(), epoch)
+  File "./projects/thor/DDPMTrainer.py", line 127, in test
+    for data in test_data:
+  File "/home/tanzl/miniconda3/envs/thor/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/home/tanzl/miniconda3/envs/thor/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1203, in _next_data
+    return self._process_data(data)
+  File "/home/tanzl/miniconda3/envs/thor/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1229, in _process_data
+    data.reraise()
+  File "/home/tanzl/miniconda3/envs/thor/lib/python3.8/site-packages/torch/_utils.py", line 425, in reraise
+    raise self.exc_type(msg)
+OSError: Caught OSError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/tanzl/miniconda3/envs/thor/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 287, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/home/tanzl/miniconda3/envs/thor/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/tanzl/miniconda3/envs/thor/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "./core/DataLoader.py", line 84, in __getitem__
+    return self.im_t(self.files[idx]), self.get_label(idx)
+  File "/home/tanzl/miniconda3/envs/thor/lib/python3.8/site-packages/torchvision/transforms/transforms.py", line 60, in __call__
+    img = t(img)
+  File "./transforms/preprocessing.py", line 71, in __call__
+    raise IOError
+OSError
+

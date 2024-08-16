@@ -1,0 +1,863 @@
+nohup: ignoring input
+INFO:root:------------------------------- DEEP LEARNING FRAMEWORK *IML-COMPAI-DL*  -------------------------------
+INFO:root:[IML-COMPAI-DL::main] Success: Loaded configuration file at: ./projects/thor/configs/brain/thor_subtrain.yaml
+INFO:root:[Main::setup_experiment]: ################ Starting setup ################
+WARNING:root:WARNING: /home/tanzl/miniconda3/envs/thor1/lib/python3.8/site-packages/xformers/_C.so: undefined symbol: _ZN2at23shouldRunRecordFunctionEPb
+Need to compile C++ extensions to get sparse attention suport. Please run python setup.py build develop
+WARNING:root:Blocksparse is not available: the current GPU does not expose Tensor cores
+INFO:root:[Main::setup_experiment]: ################ Starting experiment * THOR * using method * THOR [Gaussian] AD 350 * ################
+wandb: Currently logged in as: 1078297362 (spongestark). Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.17.5
+wandb: Run data is saved locally in /home/tanzl/code/githubdemo/THOR_DDPM/wandb/run-20240728_192122-2024_07_28_19_21_12_420890
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run THOR [Gaussian] AD 350
+wandb: ⭐️ View project at https://wandb.ai/spongestark/THOR
+wandb: 🚀 View run at https://wandb.ai/spongestark/THOR/runs/2024_07_28_19_21_12_420890
+INFO:torch.distributed.nn.jit.instantiator:Created a temporary directory at /tmp/tmpr85k6wm6
+INFO:torch.distributed.nn.jit.instantiator:Writing /tmp/tmpr85k6wm6/_remote_module_non_scriptable.py
+INFO:root:DefaultDataset::init(): Loading 529 files from: ['./data/CAPS_IXI/splits/ixi-t1_atlas_train_2D.csv']
+INFO:root:DefaultDataset::init(): Loading 31 files from: ['./data/CAPS_IXI/splits/ixi-t1_atlas_val_subtrain_2D.csv']
+INFO:root:[Configurator::train]: ################ Starting training ################
+/home/tanzl/miniconda3/envs/thor1/lib/python3.8/site-packages/xformers/_C.so: undefined symbol: _ZN2at23shouldRunRecordFunctionEPb
+Setting up [LPIPS] perceptual loss: trunk [squeeze], v[0.1], spatial [on]
+Loading model from: /home/tanzl/miniconda3/envs/thor1/lib/python3.8/site-packages/lpips/weights/v0.1/squeeze.pth
+****** DIFFUSION: Using DDPM Scheduler ******
+****** DIFFUSION: Using DDPM Scheduler ******
+BrainLoader
+INFO: Early stopping delta 1e-08
+Input size of summery is: (1, 1, 128, 128)
+====================================================================================================
+Layer (type:depth-idx)                             Output Shape              Param #
+====================================================================================================
+DDPM                                               [1, 1, 128, 128]          724,736
+├─DiffusionModelUNet: 1-1                          [1, 1, 128, 128]          --
+│    └─Sequential: 2-1                             [1, 512]                  --
+│    │    └─Linear: 3-1                            [1, 512]                  66,048
+│    │    └─SiLU: 3-2                              [1, 512]                  --
+│    │    └─Linear: 3-3                            [1, 512]                  262,656
+│    └─Convolution: 2-2                            [1, 128, 128, 128]        --
+│    │    └─Conv2d: 3-4                            [1, 128, 128, 128]        1,280
+│    └─ModuleList: 2-3                             --                        --
+│    │    └─DownBlock: 3-5                         [1, 128, 64, 64]          508,928
+│    │    └─AttnDownBlock: 3-6                     [1, 256, 32, 32]          1,904,128
+│    │    └─AttnDownBlock: 3-7                     [1, 256, 32, 32]          1,576,192
+│    └─AttnMidBlock: 2-4                           [1, 256, 32, 32]          --
+│    │    └─ResnetBlock: 3-8                       [1, 256, 32, 32]          1,312,512
+│    │    └─AttentionBlock: 3-9                    [1, 256, 32, 32]          263,680
+│    │    └─ResnetBlock: 3-10                      [1, 256, 32, 32]          1,312,512
+│    └─ModuleList: 2-5                             --                        --
+│    │    └─AttnUpBlock: 3-11                      [1, 256, 64, 64]          5,185,792
+│    │    └─AttnUpBlock: 3-12                      [1, 256, 128, 128]        4,857,856
+│    │    └─UpBlock: 3-13                          [1, 128, 128, 128]        1,248,000
+│    └─Sequential: 2-6                             [1, 1, 128, 128]          --
+│    │    └─GroupNorm: 3-14                        [1, 128, 128, 128]        256
+│    │    └─SiLU: 3-15                             [1, 128, 128, 128]        --
+│    │    └─Convolution: 3-16                      [1, 1, 128, 128]          1,153
+====================================================================================================
+Total params: 19,225,729
+Trainable params: 18,503,233
+Non-trainable params: 722,496
+Total mult-adds (G): 61.95
+====================================================================================================
+Input size (MB): 0.07
+Forward/backward pass size (MB): 685.93
+Params size (MB): 72.16
+Estimated Total Size (MB): 758.15
+====================================================================================================
+Epoch: 0 	Training Loss: 0.068007 , computed in 46.73131442070007 seconds for 528 samples
+Epoch: 1 	Training Loss: 0.036175 , computed in 45.99593138694763 seconds for 528 samples
+Epoch: 2 	Training Loss: 0.033107 , computed in 45.85970664024353 seconds for 528 samples
+Epoch: 3 	Training Loss: 0.034073 , computed in 45.80909729003906 seconds for 528 samples
+Epoch: 4 	Training Loss: 0.034044 , computed in 46.16224026679993 seconds for 528 samples
+Epoch: 5 	Training Loss: 0.032808 , computed in 47.12724423408508 seconds for 528 samples
+Epoch: 6 	Training Loss: 0.031087 , computed in 46.845919609069824 seconds for 528 samples
+Epoch: 7 	Training Loss: 0.033060 , computed in 46.45173239707947 seconds for 528 samples
+Epoch: 8 	Training Loss: 0.031701 , computed in 46.386632680892944 seconds for 528 samples
+Epoch: 9 	Training Loss: 0.030648 , computed in 46.867791175842285 seconds for 528 samples
+Epoch: 10 	Training Loss: 0.030267 , computed in 46.90864610671997 seconds for 528 samples
+Epoch: 11 	Training Loss: 0.029476 , computed in 46.89030337333679 seconds for 528 samples
+Epoch: 12 	Training Loss: 0.030660 , computed in 46.74560499191284 seconds for 528 samples
+Epoch: 13 	Training Loss: 0.029981 , computed in 46.71318435668945 seconds for 528 samples
+Epoch: 14 	Training Loss: 0.029357 , computed in 46.690272092819214 seconds for 528 samples
+Epoch: 15 	Training Loss: 0.032448 , computed in 47.049482345581055 seconds for 528 samples
+Epoch: 16 	Training Loss: 0.029535 , computed in 46.44909858703613 seconds for 528 samples
+Epoch: 17 	Training Loss: 0.029392 , computed in 47.29662537574768 seconds for 528 samples
+Epoch: 18 	Training Loss: 0.030369 , computed in 46.737377643585205 seconds for 528 samples
+Epoch: 19 	Training Loss: 0.028583 , computed in 46.939229249954224 seconds for 528 samples
+Epoch: 20 	Training Loss: 0.028460 , computed in 46.6617329120636 seconds for 528 samples
+Epoch: 21 	Training Loss: 0.029798 , computed in 46.829267740249634 seconds for 528 samples
+Epoch: 22 	Training Loss: 0.028172 , computed in 47.42652463912964 seconds for 528 samples
+Epoch: 23 	Training Loss: 0.031359 , computed in 46.79637908935547 seconds for 528 samples
+Epoch: 24 	Training Loss: 0.028384 , computed in 47.184571266174316 seconds for 528 samples
+Epoch: 25 	Training Loss: 0.027825 , computed in 46.936904430389404 seconds for 528 samples
+Epoch: 26 	Training Loss: 0.029018 , computed in 46.93164658546448 seconds for 528 samples
+Epoch: 27 	Training Loss: 0.029437 , computed in 46.734774351119995 seconds for 528 samples
+Epoch: 28 	Training Loss: 0.030522 , computed in 46.68368864059448 seconds for 528 samples
+Epoch: 29 	Training Loss: 0.028066 , computed in 46.4529128074646 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.05507333762943745
+Epoch: 30 	Training Loss: 0.028693 , computed in 47.03054904937744 seconds for 528 samples
+Epoch: 31 	Training Loss: 0.027879 , computed in 47.330830097198486 seconds for 528 samples
+Epoch: 32 	Training Loss: 0.028460 , computed in 46.607534885406494 seconds for 528 samples
+Epoch: 33 	Training Loss: 0.029681 , computed in 46.356658935546875 seconds for 528 samples
+Epoch: 34 	Training Loss: 0.028915 , computed in 46.56172823905945 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.01400730200111866
+Epoch: 35 	Training Loss: 0.027443 , computed in 47.172138690948486 seconds for 528 samples
+Epoch: 36 	Training Loss: 0.028024 , computed in 46.34022808074951 seconds for 528 samples
+Epoch: 37 	Training Loss: 0.027685 , computed in 46.74464249610901 seconds for 528 samples
+Epoch: 38 	Training Loss: 0.026728 , computed in 46.088961124420166 seconds for 528 samples
+Epoch: 39 	Training Loss: 0.028839 , computed in 46.33006310462952 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.0006428062915802002
+Epoch: 40 	Training Loss: 0.028066 , computed in 47.055095911026 seconds for 528 samples
+Epoch: 41 	Training Loss: 0.025309 , computed in 46.351238489151 seconds for 528 samples
+Epoch: 42 	Training Loss: 0.027062 , computed in 46.66512989997864 seconds for 528 samples
+Epoch: 43 	Training Loss: 0.025804 , computed in 46.96010446548462 seconds for 528 samples
+Epoch: 44 	Training Loss: 0.027960 , computed in 46.35828709602356 seconds for 528 samples
+wandb: Network error (TransientError), entering retry loop.
+INFO: Early stopping counter 4 of 1500 with -0.009054159745573997
+Epoch: 45 	Training Loss: 0.027581 , computed in 47.46619772911072 seconds for 528 samples
+wandb: Network error (ConnectionError), entering retry loop.
+Epoch: 46 	Training Loss: 0.026999 , computed in 46.737791299819946 seconds for 528 samples
+Epoch: 47 	Training Loss: 0.028117 , computed in 46.78331732749939 seconds for 528 samples
+Epoch: 48 	Training Loss: 0.027328 , computed in 46.8039984703064 seconds for 528 samples
+Epoch: 49 	Training Loss: 0.024962 , computed in 46.69957709312439 seconds for 528 samples
+INFO: Early stopping counter 5 of 1500 with -0.007254855707287788
+Epoch: 50 	Training Loss: 0.025452 , computed in 47.33592987060547 seconds for 528 samples
+wandb: Network error (ConnectionError), entering retry loop.
+Epoch: 51 	Training Loss: 0.026492 , computed in 46.481202363967896 seconds for 528 samples
+Epoch: 52 	Training Loss: 0.027633 , computed in 46.10148596763611 seconds for 528 samples
+Epoch: 53 	Training Loss: 0.026074 , computed in 47.075326442718506 seconds for 528 samples
+Epoch: 54 	Training Loss: 0.027319 , computed in 46.23120427131653 seconds for 528 samples
+Epoch: 55 	Training Loss: 0.025658 , computed in 46.46709227561951 seconds for 528 samples
+wandb: Network error (ConnectionError), entering retry loop.
+Epoch: 56 	Training Loss: 0.026508 , computed in 45.780226945877075 seconds for 528 samples
+Epoch: 57 	Training Loss: 0.025170 , computed in 45.99982500076294 seconds for 528 samples
+Epoch: 58 	Training Loss: 0.025503 , computed in 46.24635982513428 seconds for 528 samples
+Epoch: 59 	Training Loss: 0.025821 , computed in 46.844356298446655 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.01320401206612587
+wandb: Network error (ConnectionError), entering retry loop.
+wandb: Network error (ConnectionError), entering retry loop.
+Epoch: 60 	Training Loss: 0.027080 , computed in 46.233710050582886 seconds for 528 samples
+Epoch: 61 	Training Loss: 0.025830 , computed in 46.16097617149353 seconds for 528 samples
+Epoch: 62 	Training Loss: 0.024729 , computed in 46.1050443649292 seconds for 528 samples
+Epoch: 63 	Training Loss: 0.025655 , computed in 45.89610266685486 seconds for 528 samples
+Epoch: 64 	Training Loss: 0.026782 , computed in 45.99654936790466 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.002982422709465027
+Epoch: 65 	Training Loss: 0.027015 , computed in 47.24818754196167 seconds for 528 samples
+Epoch: 66 	Training Loss: 0.024285 , computed in 46.20172429084778 seconds for 528 samples
+Epoch: 67 	Training Loss: 0.025615 , computed in 46.3303599357605 seconds for 528 samples
+Epoch: 68 	Training Loss: 0.024513 , computed in 46.80174255371094 seconds for 528 samples
+Epoch: 69 	Training Loss: 0.025583 , computed in 46.19449281692505 seconds for 528 samples
+wandb: Network error (ConnectionError), entering retry loop.
+wandb: Network error (ConnectionError), entering retry loop.
+Epoch: 70 	Training Loss: 0.026544 , computed in 46.10936403274536 seconds for 528 samples
+Epoch: 71 	Training Loss: 0.026133 , computed in 46.009079456329346 seconds for 528 samples
+Epoch: 72 	Training Loss: 0.026905 , computed in 45.924946546554565 seconds for 528 samples
+Epoch: 73 	Training Loss: 0.025647 , computed in 46.32884883880615 seconds for 528 samples
+Epoch: 74 	Training Loss: 0.026548 , computed in 45.78430485725403 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.0001546330749988556
+wandb: Network error (ConnectionError), entering retry loop.
+wandb: Network error (ConnectionError), entering retry loop.
+Epoch: 75 	Training Loss: 0.026390 , computed in 46.41127038002014 seconds for 528 samples
+Epoch: 76 	Training Loss: 0.024920 , computed in 46.215983152389526 seconds for 528 samples
+Epoch: 77 	Training Loss: 0.024581 , computed in 46.29250431060791 seconds for 528 samples
+Epoch: 78 	Training Loss: 0.024978 , computed in 45.8197295665741 seconds for 528 samples
+Epoch: 79 	Training Loss: 0.026741 , computed in 45.945176124572754 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.002680409699678421
+Epoch: 80 	Training Loss: 0.026212 , computed in 47.136220932006836 seconds for 528 samples
+Epoch: 81 	Training Loss: 0.026812 , computed in 46.60734701156616 seconds for 528 samples
+Epoch: 82 	Training Loss: 0.026255 , computed in 45.944167613983154 seconds for 528 samples
+Epoch: 83 	Training Loss: 0.023048 , computed in 46.22929501533508 seconds for 528 samples
+Epoch: 84 	Training Loss: 0.024101 , computed in 46.398497104644775 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.0009689722210168839
+wandb: Network error (ConnectionError), entering retry loop.
+wandb: Network error (ConnectionError), entering retry loop.
+Epoch: 85 	Training Loss: 0.024354 , computed in 46.78826832771301 seconds for 528 samples
+Epoch: 86 	Training Loss: 0.024512 , computed in 46.272193908691406 seconds for 528 samples
+Epoch: 87 	Training Loss: 0.026816 , computed in 46.258589029312134 seconds for 528 samples
+Epoch: 88 	Training Loss: 0.024906 , computed in 46.36527919769287 seconds for 528 samples
+Epoch: 89 	Training Loss: 0.024790 , computed in 46.51742959022522 seconds for 528 samples
+INFO: Early stopping counter 4 of 1500 with -0.001764753833413124
+Epoch: 90 	Training Loss: 0.024836 , computed in 47.37033772468567 seconds for 528 samples
+Epoch: 91 	Training Loss: 0.025817 , computed in 46.76088094711304 seconds for 528 samples
+Epoch: 92 	Training Loss: 0.024760 , computed in 45.99575853347778 seconds for 528 samples
+Epoch: 93 	Training Loss: 0.025448 , computed in 46.24042820930481 seconds for 528 samples
+Epoch: 94 	Training Loss: 0.025995 , computed in 46.50321626663208 seconds for 528 samples
+INFO: Early stopping counter 5 of 1500 with -0.0011186562478542328
+wandb: Network error (ConnectionError), entering retry loop.
+Epoch: 95 	Training Loss: 0.024577 , computed in 46.957091093063354 seconds for 528 samples
+Epoch: 96 	Training Loss: 0.025182 , computed in 46.589346170425415 seconds for 528 samples
+Epoch: 97 	Training Loss: 0.025158 , computed in 46.818169832229614 seconds for 528 samples
+Epoch: 98 	Training Loss: 0.025944 , computed in 46.5224232673645 seconds for 528 samples
+Epoch: 99 	Training Loss: 0.024271 , computed in 46.549195289611816 seconds for 528 samples
+Epoch: 100 	Training Loss: 0.024405 , computed in 46.34385943412781 seconds for 528 samples
+Epoch: 101 	Training Loss: 0.025955 , computed in 46.29597616195679 seconds for 528 samples
+Epoch: 102 	Training Loss: 0.026021 , computed in 46.48401999473572 seconds for 528 samples
+Epoch: 103 	Training Loss: 0.023862 , computed in 46.40246653556824 seconds for 528 samples
+Epoch: 104 	Training Loss: 0.023595 , computed in 46.7765908241272 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.004634270444512367
+Epoch: 105 	Training Loss: 0.025228 , computed in 46.8824245929718 seconds for 528 samples
+Epoch: 106 	Training Loss: 0.026940 , computed in 46.61798453330994 seconds for 528 samples
+Epoch: 107 	Training Loss: 0.024682 , computed in 46.58902359008789 seconds for 528 samples
+Epoch: 108 	Training Loss: 0.025414 , computed in 46.120166301727295 seconds for 528 samples
+Epoch: 109 	Training Loss: 0.026491 , computed in 46.32956671714783 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.0019317958503961563
+Epoch: 110 	Training Loss: 0.024906 , computed in 46.473005533218384 seconds for 528 samples
+Epoch: 111 	Training Loss: 0.024760 , computed in 47.04513382911682 seconds for 528 samples
+Epoch: 112 	Training Loss: 0.025979 , computed in 46.439125299453735 seconds for 528 samples
+Epoch: 113 	Training Loss: 0.025445 , computed in 46.9493134021759 seconds for 528 samples
+Epoch: 114 	Training Loss: 0.025155 , computed in 46.0455961227417 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.007755625993013382
+Epoch: 115 	Training Loss: 0.024099 , computed in 47.06240940093994 seconds for 528 samples
+Epoch: 116 	Training Loss: 0.024709 , computed in 46.7595157623291 seconds for 528 samples
+Epoch: 117 	Training Loss: 0.024727 , computed in 46.79027533531189 seconds for 528 samples
+Epoch: 118 	Training Loss: 0.024926 , computed in 46.33290505409241 seconds for 528 samples
+Epoch: 119 	Training Loss: 0.023354 , computed in 46.46114945411682 seconds for 528 samples
+INFO: Early stopping counter 4 of 1500 with -0.0049110595136880875
+Epoch: 120 	Training Loss: 0.024373 , computed in 46.72364115715027 seconds for 528 samples
+Epoch: 121 	Training Loss: 0.024849 , computed in 47.13204073905945 seconds for 528 samples
+Epoch: 122 	Training Loss: 0.024431 , computed in 46.362399101257324 seconds for 528 samples
+Epoch: 123 	Training Loss: 0.025551 , computed in 46.57623076438904 seconds for 528 samples
+Epoch: 124 	Training Loss: 0.025806 , computed in 46.39664936065674 seconds for 528 samples
+INFO: Early stopping counter 5 of 1500 with -0.0034937504678964615
+Epoch: 125 	Training Loss: 0.023361 , computed in 46.09635806083679 seconds for 528 samples
+Epoch: 126 	Training Loss: 0.025080 , computed in 46.32272672653198 seconds for 528 samples
+Epoch: 127 	Training Loss: 0.023858 , computed in 45.8890016078949 seconds for 528 samples
+Epoch: 128 	Training Loss: 0.025249 , computed in 46.149964809417725 seconds for 528 samples
+Epoch: 129 	Training Loss: 0.024328 , computed in 45.771647930145264 seconds for 528 samples
+Epoch: 130 	Training Loss: 0.025746 , computed in 46.566243171691895 seconds for 528 samples
+Epoch: 131 	Training Loss: 0.025454 , computed in 46.81938552856445 seconds for 528 samples
+Epoch: 132 	Training Loss: 0.025746 , computed in 46.609394788742065 seconds for 528 samples
+Epoch: 133 	Training Loss: 0.024103 , computed in 47.08162450790405 seconds for 528 samples
+Epoch: 134 	Training Loss: 0.023615 , computed in 46.91486310958862 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.002506876364350319
+Epoch: 135 	Training Loss: 0.023112 , computed in 46.677685260772705 seconds for 528 samples
+Epoch: 136 	Training Loss: 0.025227 , computed in 47.06641173362732 seconds for 528 samples
+Epoch: 137 	Training Loss: 0.025028 , computed in 46.59887385368347 seconds for 528 samples
+Epoch: 138 	Training Loss: 0.024873 , computed in 46.12426161766052 seconds for 528 samples
+Epoch: 139 	Training Loss: 0.023887 , computed in 46.344141483306885 seconds for 528 samples
+Epoch: 140 	Training Loss: 0.024102 , computed in 45.91790413856506 seconds for 528 samples
+Epoch: 141 	Training Loss: 0.024836 , computed in 46.43498611450195 seconds for 528 samples
+Epoch: 142 	Training Loss: 0.023569 , computed in 46.306889295578 seconds for 528 samples
+Epoch: 143 	Training Loss: 0.026057 , computed in 46.3711724281311 seconds for 528 samples
+Epoch: 144 	Training Loss: 0.023985 , computed in 46.07580876350403 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.0018141642212867737
+Epoch: 145 	Training Loss: 0.023317 , computed in 46.102591037750244 seconds for 528 samples
+Epoch: 146 	Training Loss: 0.024315 , computed in 46.95142364501953 seconds for 528 samples
+Epoch: 147 	Training Loss: 0.024749 , computed in 46.59158968925476 seconds for 528 samples
+Epoch: 148 	Training Loss: 0.023807 , computed in 46.10878562927246 seconds for 528 samples
+Epoch: 149 	Training Loss: 0.025139 , computed in 45.757513761520386 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.010153032839298248
+Epoch: 150 	Training Loss: 0.024786 , computed in 46.874491930007935 seconds for 528 samples
+Epoch: 151 	Training Loss: 0.025087 , computed in 46.460878133773804 seconds for 528 samples
+Epoch: 152 	Training Loss: 0.024897 , computed in 46.37189340591431 seconds for 528 samples
+Epoch: 153 	Training Loss: 0.026519 , computed in 46.27645182609558 seconds for 528 samples
+Epoch: 154 	Training Loss: 0.024033 , computed in 46.27296042442322 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.006413113325834274
+Epoch: 155 	Training Loss: 0.023335 , computed in 47.17687749862671 seconds for 528 samples
+Epoch: 156 	Training Loss: 0.024046 , computed in 46.37410235404968 seconds for 528 samples
+Epoch: 157 	Training Loss: 0.023292 , computed in 46.718013763427734 seconds for 528 samples
+Epoch: 158 	Training Loss: 0.024196 , computed in 46.40939688682556 seconds for 528 samples
+Epoch: 159 	Training Loss: 0.023859 , computed in 46.25181603431702 seconds for 528 samples
+Epoch: 160 	Training Loss: 0.023897 , computed in 46.578651428222656 seconds for 528 samples
+Epoch: 161 	Training Loss: 0.023489 , computed in 46.58689832687378 seconds for 528 samples
+Epoch: 162 	Training Loss: 0.022715 , computed in 46.31286144256592 seconds for 528 samples
+Epoch: 163 	Training Loss: 0.023715 , computed in 45.99935436248779 seconds for 528 samples
+Epoch: 164 	Training Loss: 0.025415 , computed in 46.17964005470276 seconds for 528 samples
+Epoch: 165 	Training Loss: 0.024765 , computed in 46.36370611190796 seconds for 528 samples
+Epoch: 166 	Training Loss: 0.024792 , computed in 46.95738768577576 seconds for 528 samples
+Epoch: 167 	Training Loss: 0.024942 , computed in 46.72270607948303 seconds for 528 samples
+Epoch: 168 	Training Loss: 0.025021 , computed in 46.20820641517639 seconds for 528 samples
+Epoch: 169 	Training Loss: 0.023706 , computed in 46.49518704414368 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.0004467573016881943
+Epoch: 170 	Training Loss: 0.023834 , computed in 46.64453458786011 seconds for 528 samples
+Epoch: 171 	Training Loss: 0.021954 , computed in 46.774035930633545 seconds for 528 samples
+Epoch: 172 	Training Loss: 0.024345 , computed in 46.71790146827698 seconds for 528 samples
+Epoch: 173 	Training Loss: 0.025362 , computed in 46.38924527168274 seconds for 528 samples
+Epoch: 174 	Training Loss: 0.023620 , computed in 45.79109072685242 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.004974201321601868
+Epoch: 175 	Training Loss: 0.024493 , computed in 46.010926485061646 seconds for 528 samples
+Epoch: 176 	Training Loss: 0.024919 , computed in 46.30031895637512 seconds for 528 samples
+Epoch: 177 	Training Loss: 0.023069 , computed in 45.48656439781189 seconds for 528 samples
+Epoch: 178 	Training Loss: 0.023539 , computed in 46.18070077896118 seconds for 528 samples
+Epoch: 179 	Training Loss: 0.026820 , computed in 45.951825857162476 seconds for 528 samples
+Epoch: 180 	Training Loss: 0.023885 , computed in 45.85532760620117 seconds for 528 samples
+Epoch: 181 	Training Loss: 0.023879 , computed in 47.26276350021362 seconds for 528 samples
+Epoch: 182 	Training Loss: 0.024061 , computed in 46.23177719116211 seconds for 528 samples
+Epoch: 183 	Training Loss: 0.024446 , computed in 46.670713663101196 seconds for 528 samples
+Epoch: 184 	Training Loss: 0.024312 , computed in 46.47685766220093 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.004719024524092674
+Epoch: 185 	Training Loss: 0.025122 , computed in 46.57908868789673 seconds for 528 samples
+Epoch: 186 	Training Loss: 0.023157 , computed in 46.58659744262695 seconds for 528 samples
+Epoch: 187 	Training Loss: 0.024756 , computed in 46.766449213027954 seconds for 528 samples
+Epoch: 188 	Training Loss: 0.023184 , computed in 46.79237079620361 seconds for 528 samples
+Epoch: 189 	Training Loss: 0.024318 , computed in 46.3834433555603 seconds for 528 samples
+Epoch: 190 	Training Loss: 0.025411 , computed in 46.2398636341095 seconds for 528 samples
+Epoch: 191 	Training Loss: 0.022484 , computed in 45.900192737579346 seconds for 528 samples
+Epoch: 192 	Training Loss: 0.023525 , computed in 46.162981271743774 seconds for 528 samples
+Epoch: 193 	Training Loss: 0.024336 , computed in 45.93548083305359 seconds for 528 samples
+Epoch: 194 	Training Loss: 0.024941 , computed in 46.592164516448975 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.00011659413576126099
+Epoch: 195 	Training Loss: 0.024381 , computed in 46.66410040855408 seconds for 528 samples
+Epoch: 196 	Training Loss: 0.024946 , computed in 46.26681470870972 seconds for 528 samples
+Epoch: 197 	Training Loss: 0.023747 , computed in 46.96349263191223 seconds for 528 samples
+Epoch: 198 	Training Loss: 0.024309 , computed in 46.747352600097656 seconds for 528 samples
+Epoch: 199 	Training Loss: 0.024873 , computed in 46.53367018699646 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.003142287954688072
+Epoch: 200 	Training Loss: 0.024191 , computed in 46.513009786605835 seconds for 528 samples
+Epoch: 201 	Training Loss: 0.023071 , computed in 46.52747678756714 seconds for 528 samples
+Epoch: 202 	Training Loss: 0.022715 , computed in 46.750606298446655 seconds for 528 samples
+Epoch: 203 	Training Loss: 0.023769 , computed in 46.651440382003784 seconds for 528 samples
+Epoch: 204 	Training Loss: 0.022369 , computed in 47.27091932296753 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.0023456960916519165
+Epoch: 205 	Training Loss: 0.025440 , computed in 46.836342096328735 seconds for 528 samples
+Epoch: 206 	Training Loss: 0.023764 , computed in 46.34265375137329 seconds for 528 samples
+Epoch: 207 	Training Loss: 0.023819 , computed in 47.13603663444519 seconds for 528 samples
+Epoch: 208 	Training Loss: 0.023245 , computed in 46.15903115272522 seconds for 528 samples
+Epoch: 209 	Training Loss: 0.023922 , computed in 45.966400146484375 seconds for 528 samples
+INFO: Early stopping counter 4 of 1500 with -0.0022389795631170273
+Epoch: 210 	Training Loss: 0.024795 , computed in 46.36547136306763 seconds for 528 samples
+Epoch: 211 	Training Loss: 0.022941 , computed in 46.25753569602966 seconds for 528 samples
+Epoch: 212 	Training Loss: 0.023549 , computed in 45.982587575912476 seconds for 528 samples
+Epoch: 213 	Training Loss: 0.024059 , computed in 46.450215101242065 seconds for 528 samples
+Epoch: 214 	Training Loss: 0.024194 , computed in 46.35658264160156 seconds for 528 samples
+INFO: Early stopping counter 5 of 1500 with -0.005841491743922234
+Epoch: 215 	Training Loss: 0.024583 , computed in 46.645100355148315 seconds for 528 samples
+Epoch: 216 	Training Loss: 0.023388 , computed in 46.48292779922485 seconds for 528 samples
+Epoch: 217 	Training Loss: 0.023298 , computed in 46.22369742393494 seconds for 528 samples
+Epoch: 218 	Training Loss: 0.022958 , computed in 46.16796612739563 seconds for 528 samples
+Epoch: 219 	Training Loss: 0.023485 , computed in 46.684298515319824 seconds for 528 samples
+INFO: Early stopping counter 6 of 1500 with -0.020708242431282997
+Epoch: 220 	Training Loss: 0.023225 , computed in 47.01365923881531 seconds for 528 samples
+Epoch: 221 	Training Loss: 0.023770 , computed in 46.614250898361206 seconds for 528 samples
+Epoch: 222 	Training Loss: 0.024053 , computed in 46.50416564941406 seconds for 528 samples
+Epoch: 223 	Training Loss: 0.023604 , computed in 46.366353273391724 seconds for 528 samples
+Epoch: 224 	Training Loss: 0.022259 , computed in 46.669782638549805 seconds for 528 samples
+INFO: Early stopping counter 7 of 1500 with -0.007428238168358803
+Epoch: 225 	Training Loss: 0.024098 , computed in 47.182968854904175 seconds for 528 samples
+Epoch: 226 	Training Loss: 0.023530 , computed in 47.33750581741333 seconds for 528 samples
+Epoch: 227 	Training Loss: 0.024605 , computed in 46.88125228881836 seconds for 528 samples
+Epoch: 228 	Training Loss: 0.024136 , computed in 46.60578370094299 seconds for 528 samples
+Epoch: 229 	Training Loss: 0.024778 , computed in 46.84873819351196 seconds for 528 samples
+Epoch: 230 	Training Loss: 0.023080 , computed in 46.921852111816406 seconds for 528 samples
+Epoch: 231 	Training Loss: 0.024035 , computed in 47.02622961997986 seconds for 528 samples
+Epoch: 232 	Training Loss: 0.023295 , computed in 46.64298677444458 seconds for 528 samples
+Epoch: 233 	Training Loss: 0.023995 , computed in 46.95642137527466 seconds for 528 samples
+Epoch: 234 	Training Loss: 0.023961 , computed in 46.73399758338928 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.0027876561507582664
+Epoch: 235 	Training Loss: 0.023807 , computed in 47.276331424713135 seconds for 528 samples
+Epoch: 236 	Training Loss: 0.024640 , computed in 46.26401925086975 seconds for 528 samples
+Epoch: 237 	Training Loss: 0.023799 , computed in 47.304607629776 seconds for 528 samples
+Epoch: 238 	Training Loss: 0.023922 , computed in 46.97763395309448 seconds for 528 samples
+Epoch: 239 	Training Loss: 0.024022 , computed in 47.70769429206848 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.0026524150744080544
+Epoch: 240 	Training Loss: 0.025377 , computed in 46.83495473861694 seconds for 528 samples
+Epoch: 241 	Training Loss: 0.022971 , computed in 46.80228638648987 seconds for 528 samples
+Epoch: 242 	Training Loss: 0.024337 , computed in 46.760374307632446 seconds for 528 samples
+Epoch: 243 	Training Loss: 0.022460 , computed in 47.1643590927124 seconds for 528 samples
+Epoch: 244 	Training Loss: 0.023789 , computed in 46.77781391143799 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.005957623012363911
+Epoch: 245 	Training Loss: 0.024673 , computed in 47.0057053565979 seconds for 528 samples
+Epoch: 246 	Training Loss: 0.024434 , computed in 46.99271512031555 seconds for 528 samples
+Epoch: 247 	Training Loss: 0.023517 , computed in 46.97961163520813 seconds for 528 samples
+Epoch: 248 	Training Loss: 0.022654 , computed in 46.8506019115448 seconds for 528 samples
+Epoch: 249 	Training Loss: 0.021723 , computed in 47.234330892562866 seconds for 528 samples
+INFO: Early stopping counter 4 of 1500 with -0.006539930589497089
+Epoch: 250 	Training Loss: 0.021966 , computed in 47.00567841529846 seconds for 528 samples
+Epoch: 251 	Training Loss: 0.023433 , computed in 46.778345584869385 seconds for 528 samples
+Epoch: 252 	Training Loss: 0.024246 , computed in 47.26530194282532 seconds for 528 samples
+Epoch: 253 	Training Loss: 0.024917 , computed in 46.75616192817688 seconds for 528 samples
+Epoch: 254 	Training Loss: 0.023563 , computed in 46.79493308067322 seconds for 528 samples
+INFO: Early stopping counter 5 of 1500 with -0.006784469820559025
+Epoch: 255 	Training Loss: 0.024895 , computed in 46.87936782836914 seconds for 528 samples
+Epoch: 256 	Training Loss: 0.023498 , computed in 46.817781925201416 seconds for 528 samples
+Epoch: 257 	Training Loss: 0.022147 , computed in 46.57341384887695 seconds for 528 samples
+Epoch: 258 	Training Loss: 0.023628 , computed in 46.57751703262329 seconds for 528 samples
+Epoch: 259 	Training Loss: 0.024974 , computed in 47.28690242767334 seconds for 528 samples
+INFO: Early stopping counter 6 of 1500 with -0.00045026931911706924
+Epoch: 260 	Training Loss: 0.022925 , computed in 46.80633592605591 seconds for 528 samples
+Epoch: 261 	Training Loss: 0.023632 , computed in 47.23332953453064 seconds for 528 samples
+Epoch: 262 	Training Loss: 0.021981 , computed in 46.999337911605835 seconds for 528 samples
+Epoch: 263 	Training Loss: 0.024258 , computed in 46.41630721092224 seconds for 528 samples
+Epoch: 264 	Training Loss: 0.024453 , computed in 46.95734524726868 seconds for 528 samples
+INFO: Early stopping counter 7 of 1500 with -0.009231428615748882
+Epoch: 265 	Training Loss: 0.024067 , computed in 46.78833222389221 seconds for 528 samples
+Epoch: 266 	Training Loss: 0.022898 , computed in 46.89487051963806 seconds for 528 samples
+Epoch: 267 	Training Loss: 0.024394 , computed in 47.249732971191406 seconds for 528 samples
+Epoch: 268 	Training Loss: 0.022994 , computed in 46.79703450202942 seconds for 528 samples
+Epoch: 269 	Training Loss: 0.022910 , computed in 46.65011978149414 seconds for 528 samples
+INFO: Early stopping counter 8 of 1500 with -0.0033622002229094505
+Epoch: 270 	Training Loss: 0.023211 , computed in 47.35669279098511 seconds for 528 samples
+Epoch: 271 	Training Loss: 0.023440 , computed in 46.787808656692505 seconds for 528 samples
+Epoch: 272 	Training Loss: 0.022432 , computed in 47.362545013427734 seconds for 528 samples
+Epoch: 273 	Training Loss: 0.023154 , computed in 46.47463011741638 seconds for 528 samples
+Epoch: 274 	Training Loss: 0.024115 , computed in 47.1514151096344 seconds for 528 samples
+INFO: Early stopping counter 9 of 1500 with -0.0031472621485590935
+Epoch: 275 	Training Loss: 0.023251 , computed in 47.38043928146362 seconds for 528 samples
+Epoch: 276 	Training Loss: 0.023115 , computed in 46.48013925552368 seconds for 528 samples
+Epoch: 277 	Training Loss: 0.022724 , computed in 46.84869742393494 seconds for 528 samples
+Epoch: 278 	Training Loss: 0.021684 , computed in 46.702338457107544 seconds for 528 samples
+Epoch: 279 	Training Loss: 0.025324 , computed in 46.71355962753296 seconds for 528 samples
+INFO: Early stopping counter 10 of 1500 with -0.004019797779619694
+Epoch: 280 	Training Loss: 0.022787 , computed in 47.078031063079834 seconds for 528 samples
+Epoch: 281 	Training Loss: 0.024520 , computed in 46.472317695617676 seconds for 528 samples
+Epoch: 282 	Training Loss: 0.022954 , computed in 47.0460467338562 seconds for 528 samples
+Epoch: 283 	Training Loss: 0.023818 , computed in 46.64766025543213 seconds for 528 samples
+Epoch: 284 	Training Loss: 0.023068 , computed in 46.52452826499939 seconds for 528 samples
+INFO: Early stopping counter 11 of 1500 with -0.0038040010258555412
+Epoch: 285 	Training Loss: 0.024571 , computed in 47.14306426048279 seconds for 528 samples
+Epoch: 286 	Training Loss: 0.023063 , computed in 47.17024254798889 seconds for 528 samples
+Epoch: 287 	Training Loss: 0.021879 , computed in 47.03536653518677 seconds for 528 samples
+Epoch: 288 	Training Loss: 0.023831 , computed in 46.7847843170166 seconds for 528 samples
+Epoch: 289 	Training Loss: 0.022727 , computed in 46.78261971473694 seconds for 528 samples
+INFO: Early stopping counter 12 of 1500 with -0.001190648414194584
+Epoch: 290 	Training Loss: 0.023753 , computed in 47.10713720321655 seconds for 528 samples
+Epoch: 291 	Training Loss: 0.023778 , computed in 47.041778564453125 seconds for 528 samples
+Epoch: 292 	Training Loss: 0.025523 , computed in 46.733837604522705 seconds for 528 samples
+Epoch: 293 	Training Loss: 0.023588 , computed in 46.59221029281616 seconds for 528 samples
+Epoch: 294 	Training Loss: 0.023883 , computed in 46.962579011917114 seconds for 528 samples
+INFO: Early stopping counter 13 of 1500 with -0.002872929908335209
+Epoch: 295 	Training Loss: 0.023227 , computed in 47.87615776062012 seconds for 528 samples
+Epoch: 296 	Training Loss: 0.022807 , computed in 47.069499015808105 seconds for 528 samples
+Epoch: 297 	Training Loss: 0.023199 , computed in 46.832595348358154 seconds for 528 samples
+Epoch: 298 	Training Loss: 0.023009 , computed in 46.711122035980225 seconds for 528 samples
+Epoch: 299 	Training Loss: 0.024047 , computed in 46.514565229415894 seconds for 528 samples
+INFO: Early stopping counter 14 of 1500 with -0.007010356523096561
+Epoch: 300 	Training Loss: 0.022756 , computed in 47.25071334838867 seconds for 528 samples
+Epoch: 301 	Training Loss: 0.023876 , computed in 46.789456605911255 seconds for 528 samples
+Epoch: 302 	Training Loss: 0.024193 , computed in 46.887195348739624 seconds for 528 samples
+Epoch: 303 	Training Loss: 0.023532 , computed in 46.945464849472046 seconds for 528 samples
+Epoch: 304 	Training Loss: 0.023715 , computed in 46.716801166534424 seconds for 528 samples
+INFO: Early stopping counter 15 of 1500 with -0.0011642919853329659
+Epoch: 305 	Training Loss: 0.023008 , computed in 47.19882106781006 seconds for 528 samples
+Epoch: 306 	Training Loss: 0.023338 , computed in 46.78197956085205 seconds for 528 samples
+Epoch: 307 	Training Loss: 0.023147 , computed in 46.73534321784973 seconds for 528 samples
+Epoch: 308 	Training Loss: 0.023412 , computed in 46.72503042221069 seconds for 528 samples
+Epoch: 309 	Training Loss: 0.024444 , computed in 47.08313202857971 seconds for 528 samples
+INFO: Early stopping counter 16 of 1500 with -0.0012840377166867256
+Epoch: 310 	Training Loss: 0.023264 , computed in 47.172624826431274 seconds for 528 samples
+Epoch: 311 	Training Loss: 0.021619 , computed in 46.632558822631836 seconds for 528 samples
+Epoch: 312 	Training Loss: 0.025065 , computed in 46.85944581031799 seconds for 528 samples
+Epoch: 313 	Training Loss: 0.023255 , computed in 46.61697483062744 seconds for 528 samples
+Epoch: 314 	Training Loss: 0.022779 , computed in 46.82420372962952 seconds for 528 samples
+INFO: Early stopping counter 17 of 1500 with -0.008430962450802326
+Epoch: 315 	Training Loss: 0.023768 , computed in 47.2160439491272 seconds for 528 samples
+Epoch: 316 	Training Loss: 0.023481 , computed in 46.86742949485779 seconds for 528 samples
+Epoch: 317 	Training Loss: 0.022700 , computed in 46.8857958316803 seconds for 528 samples
+Epoch: 318 	Training Loss: 0.024947 , computed in 47.22564721107483 seconds for 528 samples
+Epoch: 319 	Training Loss: 0.024028 , computed in 46.90148091316223 seconds for 528 samples
+INFO: Early stopping counter 18 of 1500 with -0.0014205137267708778
+Epoch: 320 	Training Loss: 0.022522 , computed in 47.620163440704346 seconds for 528 samples
+Epoch: 321 	Training Loss: 0.023700 , computed in 46.784396171569824 seconds for 528 samples
+Epoch: 322 	Training Loss: 0.023045 , computed in 46.453084230422974 seconds for 528 samples
+Epoch: 323 	Training Loss: 0.023114 , computed in 46.81444072723389 seconds for 528 samples
+Epoch: 324 	Training Loss: 0.022763 , computed in 46.84351992607117 seconds for 528 samples
+INFO: Early stopping counter 19 of 1500 with -0.0016840184107422829
+Epoch: 325 	Training Loss: 0.023637 , computed in 47.24357557296753 seconds for 528 samples
+Epoch: 326 	Training Loss: 0.023422 , computed in 46.64116334915161 seconds for 528 samples
+Epoch: 327 	Training Loss: 0.023449 , computed in 46.8886878490448 seconds for 528 samples
+Epoch: 328 	Training Loss: 0.023459 , computed in 47.162466287612915 seconds for 528 samples
+Epoch: 329 	Training Loss: 0.022768 , computed in 46.6575083732605 seconds for 528 samples
+INFO: Early stopping counter 20 of 1500 with -0.00018055271357297897
+Epoch: 330 	Training Loss: 0.023332 , computed in 47.00284147262573 seconds for 528 samples
+Epoch: 331 	Training Loss: 0.023608 , computed in 47.19330286979675 seconds for 528 samples
+Epoch: 332 	Training Loss: 0.022354 , computed in 46.823452949523926 seconds for 528 samples
+Epoch: 333 	Training Loss: 0.025347 , computed in 46.94968557357788 seconds for 528 samples
+Epoch: 334 	Training Loss: 0.023268 , computed in 46.621636629104614 seconds for 528 samples
+INFO: Early stopping counter 21 of 1500 with -0.003497249446809292
+Epoch: 335 	Training Loss: 0.023480 , computed in 46.95051622390747 seconds for 528 samples
+Epoch: 336 	Training Loss: 0.023615 , computed in 46.27495455741882 seconds for 528 samples
+Epoch: 337 	Training Loss: 0.022601 , computed in 46.10907173156738 seconds for 528 samples
+Epoch: 338 	Training Loss: 0.023456 , computed in 46.393836975097656 seconds for 528 samples
+Epoch: 339 	Training Loss: 0.023997 , computed in 46.0684597492218 seconds for 528 samples
+INFO: Early stopping counter 22 of 1500 with -0.00023681391030550003
+Epoch: 340 	Training Loss: 0.022585 , computed in 46.88125467300415 seconds for 528 samples
+Epoch: 341 	Training Loss: 0.023216 , computed in 46.175148487091064 seconds for 528 samples
+Epoch: 342 	Training Loss: 0.023068 , computed in 45.76818799972534 seconds for 528 samples
+Epoch: 343 	Training Loss: 0.021853 , computed in 46.617591857910156 seconds for 528 samples
+Epoch: 344 	Training Loss: 0.023972 , computed in 46.65908336639404 seconds for 528 samples
+INFO: Early stopping counter 23 of 1500 with -0.011804291047155857
+Epoch: 345 	Training Loss: 0.023458 , computed in 46.70854425430298 seconds for 528 samples
+Epoch: 346 	Training Loss: 0.022872 , computed in 46.796876668930054 seconds for 528 samples
+Epoch: 347 	Training Loss: 0.021922 , computed in 46.74714946746826 seconds for 528 samples
+Epoch: 348 	Training Loss: 0.023560 , computed in 46.55476498603821 seconds for 528 samples
+Epoch: 349 	Training Loss: 0.022978 , computed in 46.212804317474365 seconds for 528 samples
+INFO: Early stopping counter 24 of 1500 with -0.0010224329307675362
+Epoch: 350 	Training Loss: 0.022305 , computed in 46.00282001495361 seconds for 528 samples
+Epoch: 351 	Training Loss: 0.024420 , computed in 45.890596866607666 seconds for 528 samples
+Epoch: 352 	Training Loss: 0.023571 , computed in 46.05862593650818 seconds for 528 samples
+Epoch: 353 	Training Loss: 0.022181 , computed in 46.48378229141235 seconds for 528 samples
+Epoch: 354 	Training Loss: 0.023109 , computed in 46.13432312011719 seconds for 528 samples
+Epoch: 355 	Training Loss: 0.023070 , computed in 46.64397048950195 seconds for 528 samples
+Epoch: 356 	Training Loss: 0.022522 , computed in 46.30800151824951 seconds for 528 samples
+Epoch: 357 	Training Loss: 0.024125 , computed in 46.52304291725159 seconds for 528 samples
+Epoch: 358 	Training Loss: 0.022995 , computed in 46.67273426055908 seconds for 528 samples
+Epoch: 359 	Training Loss: 0.023428 , computed in 46.59076809883118 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.0026069898158311844
+Epoch: 360 	Training Loss: 0.022210 , computed in 46.415442943573 seconds for 528 samples
+Epoch: 361 	Training Loss: 0.023393 , computed in 46.6805534362793 seconds for 528 samples
+Epoch: 362 	Training Loss: 0.025096 , computed in 46.58295154571533 seconds for 528 samples
+Epoch: 363 	Training Loss: 0.021661 , computed in 47.18276643753052 seconds for 528 samples
+Epoch: 364 	Training Loss: 0.022524 , computed in 46.3920578956604 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.0010290443897247314
+Epoch: 365 	Training Loss: 0.022182 , computed in 47.62035655975342 seconds for 528 samples
+Epoch: 366 	Training Loss: 0.022111 , computed in 46.85263729095459 seconds for 528 samples
+Epoch: 367 	Training Loss: 0.023252 , computed in 46.453773021698 seconds for 528 samples
+Epoch: 368 	Training Loss: 0.023729 , computed in 46.9491810798645 seconds for 528 samples
+Epoch: 369 	Training Loss: 0.023444 , computed in 46.902474880218506 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.005524115636944771
+Epoch: 370 	Training Loss: 0.025128 , computed in 47.25749659538269 seconds for 528 samples
+Epoch: 371 	Training Loss: 0.024176 , computed in 46.792407274246216 seconds for 528 samples
+Epoch: 372 	Training Loss: 0.025305 , computed in 46.79283595085144 seconds for 528 samples
+Epoch: 373 	Training Loss: 0.021489 , computed in 46.966734170913696 seconds for 528 samples
+Epoch: 374 	Training Loss: 0.023840 , computed in 46.55540132522583 seconds for 528 samples
+INFO: Early stopping counter 4 of 1500 with -0.00898822396993637
+Epoch: 375 	Training Loss: 0.021774 , computed in 47.20782423019409 seconds for 528 samples
+Epoch: 376 	Training Loss: 0.024967 , computed in 46.796316385269165 seconds for 528 samples
+Epoch: 377 	Training Loss: 0.025090 , computed in 46.956788778305054 seconds for 528 samples
+Epoch: 378 	Training Loss: 0.023646 , computed in 46.780778646469116 seconds for 528 samples
+Epoch: 379 	Training Loss: 0.022419 , computed in 46.57961344718933 seconds for 528 samples
+INFO: Early stopping counter 5 of 1500 with -0.0003755791112780571
+Epoch: 380 	Training Loss: 0.024013 , computed in 47.29787802696228 seconds for 528 samples
+Epoch: 381 	Training Loss: 0.023682 , computed in 46.77400279045105 seconds for 528 samples
+Epoch: 382 	Training Loss: 0.022826 , computed in 47.633344411849976 seconds for 528 samples
+Epoch: 383 	Training Loss: 0.023687 , computed in 46.889995098114014 seconds for 528 samples
+Epoch: 384 	Training Loss: 0.022733 , computed in 47.383851289749146 seconds for 528 samples
+INFO: Early stopping counter 6 of 1500 with -0.001318071037530899
+Epoch: 385 	Training Loss: 0.025418 , computed in 47.20884943008423 seconds for 528 samples
+Epoch: 386 	Training Loss: 0.022339 , computed in 47.890371561050415 seconds for 528 samples
+Epoch: 387 	Training Loss: 0.024236 , computed in 46.56176137924194 seconds for 528 samples
+Epoch: 388 	Training Loss: 0.023388 , computed in 46.74215483665466 seconds for 528 samples
+Epoch: 389 	Training Loss: 0.023214 , computed in 46.37996315956116 seconds for 528 samples
+Epoch: 390 	Training Loss: 0.025191 , computed in 46.39811038970947 seconds for 528 samples
+Epoch: 391 	Training Loss: 0.023773 , computed in 46.46842980384827 seconds for 528 samples
+Epoch: 392 	Training Loss: 0.023102 , computed in 46.67563462257385 seconds for 528 samples
+Epoch: 393 	Training Loss: 0.023558 , computed in 46.87493681907654 seconds for 528 samples
+Epoch: 394 	Training Loss: 0.024941 , computed in 46.4034640789032 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.00013789255172014236
+Epoch: 395 	Training Loss: 0.023728 , computed in 46.54509496688843 seconds for 528 samples
+Epoch: 396 	Training Loss: 0.023861 , computed in 46.19657635688782 seconds for 528 samples
+Epoch: 397 	Training Loss: 0.022870 , computed in 46.42597150802612 seconds for 528 samples
+Epoch: 398 	Training Loss: 0.022269 , computed in 46.15024971961975 seconds for 528 samples
+Epoch: 399 	Training Loss: 0.024321 , computed in 46.524827003479004 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.0035452889278531075
+Epoch: 400 	Training Loss: 0.022726 , computed in 46.2925500869751 seconds for 528 samples
+Epoch: 401 	Training Loss: 0.023889 , computed in 46.13121271133423 seconds for 528 samples
+Epoch: 402 	Training Loss: 0.022027 , computed in 46.29178977012634 seconds for 528 samples
+Epoch: 403 	Training Loss: 0.023272 , computed in 46.172367572784424 seconds for 528 samples
+Epoch: 404 	Training Loss: 0.023593 , computed in 46.11228108406067 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.004240521229803562
+Epoch: 405 	Training Loss: 0.022646 , computed in 46.266735792160034 seconds for 528 samples
+Epoch: 406 	Training Loss: 0.023074 , computed in 46.345787525177 seconds for 528 samples
+Epoch: 407 	Training Loss: 0.024245 , computed in 46.759368896484375 seconds for 528 samples
+Epoch: 408 	Training Loss: 0.023559 , computed in 46.36658716201782 seconds for 528 samples
+Epoch: 409 	Training Loss: 0.022719 , computed in 46.856343507766724 seconds for 528 samples
+INFO: Early stopping counter 4 of 1500 with -0.007316245697438717
+Epoch: 410 	Training Loss: 0.022480 , computed in 47.284027099609375 seconds for 528 samples
+Epoch: 411 	Training Loss: 0.022691 , computed in 46.47863531112671 seconds for 528 samples
+Epoch: 412 	Training Loss: 0.024288 , computed in 46.94438648223877 seconds for 528 samples
+Epoch: 413 	Training Loss: 0.022874 , computed in 46.70901823043823 seconds for 528 samples
+Epoch: 414 	Training Loss: 0.023313 , computed in 46.214399099349976 seconds for 528 samples
+Epoch: 415 	Training Loss: 0.023798 , computed in 46.434030532836914 seconds for 528 samples
+Epoch: 416 	Training Loss: 0.021583 , computed in 47.255380630493164 seconds for 528 samples
+Epoch: 417 	Training Loss: 0.023058 , computed in 46.44317555427551 seconds for 528 samples
+Epoch: 418 	Training Loss: 0.022547 , computed in 47.19463491439819 seconds for 528 samples
+Epoch: 419 	Training Loss: 0.022019 , computed in 46.51208782196045 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.0009019635617733002
+Epoch: 420 	Training Loss: 0.023370 , computed in 46.79657793045044 seconds for 528 samples
+Epoch: 421 	Training Loss: 0.023776 , computed in 47.15727376937866 seconds for 528 samples
+Epoch: 422 	Training Loss: 0.021173 , computed in 47.302995443344116 seconds for 528 samples
+Epoch: 423 	Training Loss: 0.023045 , computed in 46.865997076034546 seconds for 528 samples
+Epoch: 424 	Training Loss: 0.023178 , computed in 46.78870892524719 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.0016327472403645515
+Epoch: 425 	Training Loss: 0.022967 , computed in 47.1718966960907 seconds for 528 samples
+Epoch: 426 	Training Loss: 0.022896 , computed in 46.68956160545349 seconds for 528 samples
+Epoch: 427 	Training Loss: 0.023593 , computed in 46.613494873046875 seconds for 528 samples
+Epoch: 428 	Training Loss: 0.023628 , computed in 46.75354862213135 seconds for 528 samples
+Epoch: 429 	Training Loss: 0.023918 , computed in 47.02169919013977 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.0011951122432947159
+Epoch: 430 	Training Loss: 0.023807 , computed in 47.08298587799072 seconds for 528 samples
+Epoch: 431 	Training Loss: 0.023150 , computed in 47.56427478790283 seconds for 528 samples
+Epoch: 432 	Training Loss: 0.023187 , computed in 46.68169641494751 seconds for 528 samples
+Epoch: 433 	Training Loss: 0.021481 , computed in 46.71006417274475 seconds for 528 samples
+Epoch: 434 	Training Loss: 0.022396 , computed in 46.893285274505615 seconds for 528 samples
+INFO: Early stopping counter 4 of 1500 with -0.003910498693585396
+Epoch: 435 	Training Loss: 0.021788 , computed in 47.05533313751221 seconds for 528 samples
+Epoch: 436 	Training Loss: 0.023881 , computed in 47.31304883956909 seconds for 528 samples
+Epoch: 437 	Training Loss: 0.023513 , computed in 46.51130962371826 seconds for 528 samples
+Epoch: 438 	Training Loss: 0.023894 , computed in 46.94353365898132 seconds for 528 samples
+Epoch: 439 	Training Loss: 0.023088 , computed in 46.48190402984619 seconds for 528 samples
+INFO: Early stopping counter 5 of 1500 with -0.0010544639080762863
+Epoch: 440 	Training Loss: 0.022084 , computed in 47.094247341156006 seconds for 528 samples
+Epoch: 441 	Training Loss: 0.023211 , computed in 47.40236258506775 seconds for 528 samples
+Epoch: 442 	Training Loss: 0.023920 , computed in 46.40601849555969 seconds for 528 samples
+Epoch: 443 	Training Loss: 0.022412 , computed in 47.20585036277771 seconds for 528 samples
+Epoch: 444 	Training Loss: 0.023218 , computed in 46.793540239334106 seconds for 528 samples
+INFO: Early stopping counter 6 of 1500 with -0.0032104235142469406
+Epoch: 445 	Training Loss: 0.023232 , computed in 47.164724588394165 seconds for 528 samples
+Epoch: 446 	Training Loss: 0.024226 , computed in 46.73745656013489 seconds for 528 samples
+Epoch: 447 	Training Loss: 0.023391 , computed in 46.623018741607666 seconds for 528 samples
+Epoch: 448 	Training Loss: 0.024764 , computed in 46.80031609535217 seconds for 528 samples
+Epoch: 449 	Training Loss: 0.022252 , computed in 46.50428581237793 seconds for 528 samples
+INFO: Early stopping counter 7 of 1500 with -0.0011835377663373947
+Epoch: 450 	Training Loss: 0.022755 , computed in 47.55394244194031 seconds for 528 samples
+Epoch: 451 	Training Loss: 0.022850 , computed in 46.98369812965393 seconds for 528 samples
+Epoch: 452 	Training Loss: 0.023168 , computed in 46.64572715759277 seconds for 528 samples
+Epoch: 453 	Training Loss: 0.022839 , computed in 46.76376175880432 seconds for 528 samples
+Epoch: 454 	Training Loss: 0.022880 , computed in 47.0321261882782 seconds for 528 samples
+INFO: Early stopping counter 8 of 1500 with -0.002404695376753807
+Epoch: 455 	Training Loss: 0.024315 , computed in 46.99127697944641 seconds for 528 samples
+Epoch: 456 	Training Loss: 0.022922 , computed in 46.519755363464355 seconds for 528 samples
+Epoch: 457 	Training Loss: 0.022541 , computed in 46.88368058204651 seconds for 528 samples
+Epoch: 458 	Training Loss: 0.023403 , computed in 46.61193513870239 seconds for 528 samples
+Epoch: 459 	Training Loss: 0.023095 , computed in 46.202340602874756 seconds for 528 samples
+Epoch: 460 	Training Loss: 0.023809 , computed in 46.85135340690613 seconds for 528 samples
+Epoch: 461 	Training Loss: 0.021402 , computed in 47.209840059280396 seconds for 528 samples
+Epoch: 462 	Training Loss: 0.022498 , computed in 46.55143928527832 seconds for 528 samples
+Epoch: 463 	Training Loss: 0.023559 , computed in 47.156914949417114 seconds for 528 samples
+Epoch: 464 	Training Loss: 0.022415 , computed in 47.558982849121094 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.0010973438620567322
+Epoch: 465 	Training Loss: 0.023113 , computed in 47.444226026535034 seconds for 528 samples
+Epoch: 466 	Training Loss: 0.022347 , computed in 46.79960560798645 seconds for 528 samples
+Epoch: 467 	Training Loss: 0.022724 , computed in 46.78429388999939 seconds for 528 samples
+Epoch: 468 	Training Loss: 0.023155 , computed in 47.40361142158508 seconds for 528 samples
+Epoch: 469 	Training Loss: 0.023800 , computed in 46.159531354904175 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.001316341571509838
+Epoch: 470 	Training Loss: 0.022134 , computed in 47.33693981170654 seconds for 528 samples
+Epoch: 471 	Training Loss: 0.023922 , computed in 46.88860750198364 seconds for 528 samples
+Epoch: 472 	Training Loss: 0.023007 , computed in 46.87389016151428 seconds for 528 samples
+Epoch: 473 	Training Loss: 0.023728 , computed in 47.32262444496155 seconds for 528 samples
+Epoch: 474 	Training Loss: 0.022834 , computed in 46.59903359413147 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.0012372499331831932
+Epoch: 475 	Training Loss: 0.023639 , computed in 47.25253105163574 seconds for 528 samples
+Epoch: 476 	Training Loss: 0.023617 , computed in 46.86344575881958 seconds for 528 samples
+Epoch: 477 	Training Loss: 0.021704 , computed in 47.07047748565674 seconds for 528 samples
+Epoch: 478 	Training Loss: 0.023351 , computed in 46.453524112701416 seconds for 528 samples
+Epoch: 479 	Training Loss: 0.022842 , computed in 46.86778116226196 seconds for 528 samples
+INFO: Early stopping counter 4 of 1500 with -0.004811262711882591
+Epoch: 480 	Training Loss: 0.022142 , computed in 46.81330060958862 seconds for 528 samples
+Epoch: 481 	Training Loss: 0.023181 , computed in 46.7884521484375 seconds for 528 samples
+Epoch: 482 	Training Loss: 0.024056 , computed in 47.10467576980591 seconds for 528 samples
+Epoch: 483 	Training Loss: 0.021581 , computed in 47.12697219848633 seconds for 528 samples
+Epoch: 484 	Training Loss: 0.024387 , computed in 47.1183979511261 seconds for 528 samples
+INFO: Early stopping counter 5 of 1500 with -0.007814381271600723
+Epoch: 485 	Training Loss: 0.023336 , computed in 47.02918577194214 seconds for 528 samples
+Epoch: 486 	Training Loss: 0.022718 , computed in 46.58183693885803 seconds for 528 samples
+Epoch: 487 	Training Loss: 0.022289 , computed in 46.554250717163086 seconds for 528 samples
+Epoch: 488 	Training Loss: 0.022464 , computed in 47.00882887840271 seconds for 528 samples
+Epoch: 489 	Training Loss: 0.022860 , computed in 46.849817752838135 seconds for 528 samples
+INFO: Early stopping counter 6 of 1500 with -0.00037028267979621887
+Epoch: 490 	Training Loss: 0.022630 , computed in 47.11247754096985 seconds for 528 samples
+Epoch: 491 	Training Loss: 0.023025 , computed in 46.70958113670349 seconds for 528 samples
+Epoch: 492 	Training Loss: 0.021987 , computed in 46.639620542526245 seconds for 528 samples
+Epoch: 493 	Training Loss: 0.022680 , computed in 47.01239991188049 seconds for 528 samples
+Epoch: 494 	Training Loss: 0.021999 , computed in 46.72493076324463 seconds for 528 samples
+INFO: Early stopping counter 7 of 1500 with -0.001965041272342205
+Epoch: 495 	Training Loss: 0.023526 , computed in 46.8341121673584 seconds for 528 samples
+Epoch: 496 	Training Loss: 0.022180 , computed in 46.980937480926514 seconds for 528 samples
+Epoch: 497 	Training Loss: 0.024348 , computed in 46.80881595611572 seconds for 528 samples
+Epoch: 498 	Training Loss: 0.022984 , computed in 46.98602271080017 seconds for 528 samples
+Epoch: 499 	Training Loss: 0.023240 , computed in 47.29205942153931 seconds for 528 samples
+INFO: Early stopping counter 8 of 1500 with -0.0017203055322170258
+Epoch: 500 	Training Loss: 0.022197 , computed in 47.624584674835205 seconds for 528 samples
+Epoch: 501 	Training Loss: 0.023003 , computed in 46.93062901496887 seconds for 528 samples
+Epoch: 502 	Training Loss: 0.023167 , computed in 47.14034557342529 seconds for 528 samples
+Epoch: 503 	Training Loss: 0.022330 , computed in 46.930020332336426 seconds for 528 samples
+Epoch: 504 	Training Loss: 0.022969 , computed in 47.37127065658569 seconds for 528 samples
+INFO: Early stopping counter 9 of 1500 with -0.002581629902124405
+Epoch: 505 	Training Loss: 0.023477 , computed in 47.10086154937744 seconds for 528 samples
+Epoch: 506 	Training Loss: 0.022115 , computed in 46.750065088272095 seconds for 528 samples
+Epoch: 507 	Training Loss: 0.022732 , computed in 47.21464538574219 seconds for 528 samples
+Epoch: 508 	Training Loss: 0.022680 , computed in 46.96295094490051 seconds for 528 samples
+Epoch: 509 	Training Loss: 0.023106 , computed in 46.56144094467163 seconds for 528 samples
+Epoch: 510 	Training Loss: 0.023134 , computed in 46.68043375015259 seconds for 528 samples
+Epoch: 511 	Training Loss: 0.023031 , computed in 46.866623878479004 seconds for 528 samples
+Epoch: 512 	Training Loss: 0.023186 , computed in 46.96183681488037 seconds for 528 samples
+Epoch: 513 	Training Loss: 0.021556 , computed in 46.60698461532593 seconds for 528 samples
+Epoch: 514 	Training Loss: 0.023166 , computed in 47.23931121826172 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.0027332622557878494
+Epoch: 515 	Training Loss: 0.024056 , computed in 47.58660006523132 seconds for 528 samples
+Epoch: 516 	Training Loss: 0.022946 , computed in 46.7761116027832 seconds for 528 samples
+Epoch: 517 	Training Loss: 0.023357 , computed in 46.791821002960205 seconds for 528 samples
+Epoch: 518 	Training Loss: 0.023221 , computed in 46.74549651145935 seconds for 528 samples
+Epoch: 519 	Training Loss: 0.022256 , computed in 47.29849028587341 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.0008101873099803925
+Epoch: 520 	Training Loss: 0.023171 , computed in 47.13576793670654 seconds for 528 samples
+Epoch: 521 	Training Loss: 0.023657 , computed in 46.86375284194946 seconds for 528 samples
+Epoch: 522 	Training Loss: 0.023804 , computed in 46.94112753868103 seconds for 528 samples
+Epoch: 523 	Training Loss: 0.022647 , computed in 46.652538776397705 seconds for 528 samples
+Epoch: 524 	Training Loss: 0.022892 , computed in 47.02787208557129 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.0011364733800292015
+Epoch: 525 	Training Loss: 0.022453 , computed in 47.1130952835083 seconds for 528 samples
+Epoch: 526 	Training Loss: 0.022809 , computed in 46.97494077682495 seconds for 528 samples
+Epoch: 527 	Training Loss: 0.023295 , computed in 46.51546621322632 seconds for 528 samples
+Epoch: 528 	Training Loss: 0.023565 , computed in 46.65940570831299 seconds for 528 samples
+Epoch: 529 	Training Loss: 0.022491 , computed in 47.19796347618103 seconds for 528 samples
+INFO: Early stopping counter 4 of 1500 with -0.005313152447342873
+Epoch: 530 	Training Loss: 0.026219 , computed in 47.647852420806885 seconds for 528 samples
+Epoch: 531 	Training Loss: 0.022710 , computed in 47.17050218582153 seconds for 528 samples
+Epoch: 532 	Training Loss: 0.021728 , computed in 47.05237102508545 seconds for 528 samples
+Epoch: 533 	Training Loss: 0.024684 , computed in 47.62387681007385 seconds for 528 samples
+Epoch: 534 	Training Loss: 0.023229 , computed in 47.045647621154785 seconds for 528 samples
+INFO: Early stopping counter 5 of 1500 with -0.0008494025096297264
+Epoch: 535 	Training Loss: 0.023180 , computed in 47.20237994194031 seconds for 528 samples
+Epoch: 536 	Training Loss: 0.022651 , computed in 46.56846618652344 seconds for 528 samples
+Epoch: 537 	Training Loss: 0.022977 , computed in 47.0409677028656 seconds for 528 samples
+Epoch: 538 	Training Loss: 0.023785 , computed in 47.13989591598511 seconds for 528 samples
+Epoch: 539 	Training Loss: 0.022369 , computed in 46.81970715522766 seconds for 528 samples
+INFO: Early stopping counter 6 of 1500 with -0.0008879518136382103
+Epoch: 540 	Training Loss: 0.021860 , computed in 47.190075397491455 seconds for 528 samples
+Epoch: 541 	Training Loss: 0.023779 , computed in 46.693432331085205 seconds for 528 samples
+Epoch: 542 	Training Loss: 0.021666 , computed in 47.214635372161865 seconds for 528 samples
+Epoch: 543 	Training Loss: 0.023130 , computed in 46.9685800075531 seconds for 528 samples
+Epoch: 544 	Training Loss: 0.022772 , computed in 46.63521218299866 seconds for 528 samples
+INFO: Early stopping counter 7 of 1500 with -0.00245758518576622
+Epoch: 545 	Training Loss: 0.022682 , computed in 47.316502809524536 seconds for 528 samples
+Epoch: 546 	Training Loss: 0.022229 , computed in 46.69938898086548 seconds for 528 samples
+Epoch: 547 	Training Loss: 0.021821 , computed in 46.893357276916504 seconds for 528 samples
+Epoch: 548 	Training Loss: 0.023082 , computed in 46.29715442657471 seconds for 528 samples
+Epoch: 549 	Training Loss: 0.022188 , computed in 46.82267093658447 seconds for 528 samples
+INFO: Early stopping counter 8 of 1500 with -0.0032791271805763245
+Epoch: 550 	Training Loss: 0.021766 , computed in 46.93775677680969 seconds for 528 samples
+Epoch: 551 	Training Loss: 0.022665 , computed in 46.696372509002686 seconds for 528 samples
+Epoch: 552 	Training Loss: 0.022218 , computed in 46.97463035583496 seconds for 528 samples
+Epoch: 553 	Training Loss: 0.023535 , computed in 47.05306434631348 seconds for 528 samples
+Epoch: 554 	Training Loss: 0.022605 , computed in 46.694265365600586 seconds for 528 samples
+INFO: Early stopping counter 9 of 1500 with -0.006351195275783539
+Epoch: 555 	Training Loss: 0.023882 , computed in 47.55724334716797 seconds for 528 samples
+Epoch: 556 	Training Loss: 0.021279 , computed in 46.8794903755188 seconds for 528 samples
+Epoch: 557 	Training Loss: 0.022521 , computed in 47.26033163070679 seconds for 528 samples
+Epoch: 558 	Training Loss: 0.021512 , computed in 46.725719928741455 seconds for 528 samples
+Epoch: 559 	Training Loss: 0.021579 , computed in 46.34127640724182 seconds for 528 samples
+INFO: Early stopping counter 10 of 1500 with -0.0035537034273147583
+Epoch: 560 	Training Loss: 0.021714 , computed in 47.22506284713745 seconds for 528 samples
+Epoch: 561 	Training Loss: 0.023794 , computed in 47.03447675704956 seconds for 528 samples
+Epoch: 562 	Training Loss: 0.022641 , computed in 46.9729118347168 seconds for 528 samples
+Epoch: 563 	Training Loss: 0.023203 , computed in 47.10859704017639 seconds for 528 samples
+Epoch: 564 	Training Loss: 0.022894 , computed in 46.50803184509277 seconds for 528 samples
+INFO: Early stopping counter 11 of 1500 with -0.001253790222108364
+Epoch: 565 	Training Loss: 0.023444 , computed in 47.018572092056274 seconds for 528 samples
+Epoch: 566 	Training Loss: 0.022134 , computed in 46.94342756271362 seconds for 528 samples
+Epoch: 567 	Training Loss: 0.024149 , computed in 47.16771912574768 seconds for 528 samples
+Epoch: 568 	Training Loss: 0.022085 , computed in 47.255462646484375 seconds for 528 samples
+Epoch: 569 	Training Loss: 0.022776 , computed in 46.893670082092285 seconds for 528 samples
+INFO: Early stopping counter 12 of 1500 with -0.0005185268819332123
+Epoch: 570 	Training Loss: 0.022108 , computed in 47.40998411178589 seconds for 528 samples
+Epoch: 571 	Training Loss: 0.021757 , computed in 46.676831007003784 seconds for 528 samples
+Epoch: 572 	Training Loss: 0.023872 , computed in 46.28980350494385 seconds for 528 samples
+Epoch: 573 	Training Loss: 0.023934 , computed in 46.80365252494812 seconds for 528 samples
+Epoch: 574 	Training Loss: 0.021837 , computed in 46.76006770133972 seconds for 528 samples
+INFO: Early stopping counter 13 of 1500 with -0.0012693647295236588
+Epoch: 575 	Training Loss: 0.021315 , computed in 46.84927749633789 seconds for 528 samples
+Epoch: 576 	Training Loss: 0.023016 , computed in 47.102349042892456 seconds for 528 samples
+Epoch: 577 	Training Loss: 0.022169 , computed in 47.125993490219116 seconds for 528 samples
+Epoch: 578 	Training Loss: 0.022407 , computed in 46.85127568244934 seconds for 528 samples
+Epoch: 579 	Training Loss: 0.023793 , computed in 47.04284954071045 seconds for 528 samples
+INFO: Early stopping counter 14 of 1500 with -0.0001696040853857994
+Epoch: 580 	Training Loss: 0.021081 , computed in 49.64374804496765 seconds for 528 samples
+Epoch: 581 	Training Loss: 0.023900 , computed in 45.80082988739014 seconds for 528 samples
+Epoch: 582 	Training Loss: 0.022421 , computed in 49.10470724105835 seconds for 528 samples
+Epoch: 583 	Training Loss: 0.022140 , computed in 46.91049337387085 seconds for 528 samples
+Epoch: 584 	Training Loss: 0.022959 , computed in 48.129539251327515 seconds for 528 samples
+INFO: Early stopping counter 15 of 1500 with -0.00169434305280447
+Epoch: 585 	Training Loss: 0.022033 , computed in 48.54662895202637 seconds for 528 samples
+Epoch: 586 	Training Loss: 0.021021 , computed in 78.79570150375366 seconds for 528 samples
+Epoch: 587 	Training Loss: 0.022482 , computed in 50.2472083568573 seconds for 528 samples
+Epoch: 588 	Training Loss: 0.023779 , computed in 49.9776394367218 seconds for 528 samples
+Epoch: 589 	Training Loss: 0.022229 , computed in 49.48971939086914 seconds for 528 samples
+INFO: Early stopping counter 16 of 1500 with -0.007187042385339737
+Epoch: 590 	Training Loss: 0.022447 , computed in 1876.9084310531616 seconds for 528 samples
+Epoch: 591 	Training Loss: 0.022607 , computed in 49.17955422401428 seconds for 528 samples
+Epoch: 592 	Training Loss: 0.023117 , computed in 50.68049216270447 seconds for 528 samples
+Epoch: 593 	Training Loss: 0.023648 , computed in 52.231611490249634 seconds for 528 samples
+Epoch: 594 	Training Loss: 0.022925 , computed in 53.55100607872009 seconds for 528 samples
+Epoch: 595 	Training Loss: 0.024181 , computed in 50.72984075546265 seconds for 528 samples
+Epoch: 596 	Training Loss: 0.022212 , computed in 54.10981297492981 seconds for 528 samples
+Epoch: 597 	Training Loss: 0.022318 , computed in 48.51718759536743 seconds for 528 samples
+Epoch: 598 	Training Loss: 0.022156 , computed in 52.99660086631775 seconds for 528 samples
+Epoch: 599 	Training Loss: 0.023885 , computed in 52.07420086860657 seconds for 528 samples
+INFO: Early stopping counter 1 of 1500 with -0.0033423081040382385
+Epoch: 600 	Training Loss: 0.021968 , computed in 53.15896821022034 seconds for 528 samples
+Epoch: 601 	Training Loss: 0.022627 , computed in 47.566675901412964 seconds for 528 samples
+Epoch: 602 	Training Loss: 0.022448 , computed in 53.86637282371521 seconds for 528 samples
+Epoch: 603 	Training Loss: 0.022505 , computed in 50.695345878601074 seconds for 528 samples
+Epoch: 604 	Training Loss: 0.022984 , computed in 53.06674599647522 seconds for 528 samples
+INFO: Early stopping counter 2 of 1500 with -0.00018422678112983704
+Epoch: 605 	Training Loss: 0.024433 , computed in 54.323162317276 seconds for 528 samples
+Epoch: 606 	Training Loss: 0.022893 , computed in 79.46431493759155 seconds for 528 samples
+Epoch: 607 	Training Loss: 0.023815 , computed in 53.570266246795654 seconds for 528 samples
+Epoch: 608 	Training Loss: 0.022482 , computed in 50.13765001296997 seconds for 528 samples
+Epoch: 609 	Training Loss: 0.023162 , computed in 55.50902509689331 seconds for 528 samples
+INFO: Early stopping counter 3 of 1500 with -0.0022975821048021317
+Epoch: 610 	Training Loss: 0.022938 , computed in 78.91426301002502 seconds for 528 samples
+Epoch: 611 	Training Loss: 0.023297 , computed in 50.05130457878113 seconds for 528 samples
+Epoch: 612 	Training Loss: 0.022209 , computed in 78.94921612739563 seconds for 528 samples
+Epoch: 613 	Training Loss: 0.022530 , computed in 2425.4730863571167 seconds for 528 samples
+Epoch: 614 	Training Loss: 0.023509 , computed in 48.30652213096619 seconds for 528 samples
+INFO: Early stopping counter 4 of 1500 with -0.002719513140618801
+Epoch: 615 	Training Loss: 0.024511 , computed in 51.00061368942261 seconds for 528 samples
+Epoch: 616 	Training Loss: 0.021831 , computed in 50.058268308639526 seconds for 528 samples
+Epoch: 617 	Training Loss: 0.022814 , computed in 49.386367321014404 seconds for 528 samples
+Epoch: 618 	Training Loss: 0.022525 , computed in 48.51432275772095 seconds for 528 samples
+Epoch: 619 	Training Loss: 0.023584 , computed in 78.44743061065674 seconds for 528 samples
+INFO: Early stopping counter 5 of 1500 with -0.0028269942849874496
+Epoch: 620 	Training Loss: 0.022091 , computed in 81.82786870002747 seconds for 528 samples
+Epoch: 621 	Training Loss: 0.024003 , computed in 50.696669578552246 seconds for 528 samples
+Epoch: 622 	Training Loss: 0.022521 , computed in 44.53542137145996 seconds for 528 samples
+Epoch: 623 	Training Loss: 0.023672 , computed in 46.69871640205383 seconds for 528 samples
+Epoch: 624 	Training Loss: 0.021947 , computed in 79.35623145103455 seconds for 528 samples
+INFO: Early stopping counter 6 of 1500 with -0.0030660107731819153
+Epoch: 625 	Training Loss: 0.023882 , computed in 47.640902519226074 seconds for 528 samples
+Epoch: 626 	Training Loss: 0.021303 , computed in 50.01566815376282 seconds for 528 samples
+Epoch: 627 	Training Loss: 0.022237 , computed in 50.1184196472168 seconds for 528 samples
+Epoch: 628 	Training Loss: 0.021730 , computed in 56.96784543991089 seconds for 528 samples
+Epoch: 629 	Training Loss: 0.022430 , computed in 48.960697412490845 seconds for 528 samples
+INFO: Early stopping counter 7 of 1500 with -0.002787603996694088
+Epoch: 630 	Training Loss: 0.022297 , computed in 49.44490146636963 seconds for 528 samples
+Epoch: 631 	Training Loss: 0.021786 , computed in 50.12540817260742 seconds for 528 samples
+Epoch: 632 	Training Loss: 0.025156 , computed in 47.79019284248352 seconds for 528 samples
+Epoch: 633 	Training Loss: 0.021745 , computed in 47.89113807678223 seconds for 528 samples
+Epoch: 634 	Training Loss: 0.022100 , computed in 77.8274610042572 seconds for 528 samples
+INFO: Early stopping counter 8 of 1500 with -0.0027627740055322647
+Epoch: 635 	Training Loss: 0.022842 , computed in 49.3355610370636 seconds for 528 samples
+Epoch: 636 	Training Loss: 0.023531 , computed in 2272.815363883972 seconds for 528 samples
+Epoch: 637 	Training Loss: 0.022645 , computed in 59.166977405548096 seconds for 528 samples
+Epoch: 638 	Training Loss: 0.021987 , computed in 52.286651611328125 seconds for 528 samples
+Epoch: 639 	Training Loss: 0.020355 , computed in 53.419610023498535 seconds for 528 samples
+INFO: Early stopping counter 9 of 1500 with -0.003297317773103714
+Epoch: 640 	Training Loss: 0.022873 , computed in 48.117467403411865 seconds for 528 samples
+Epoch: 641 	Training Loss: 0.023511 , computed in 51.30765461921692 seconds for 528 samples
+Epoch: 642 	Training Loss: 0.023783 , computed in 50.52191424369812 seconds for 528 samples
+Epoch: 643 	Training Loss: 0.020474 , computed in 48.511287689208984 seconds for 528 samples
+Epoch: 644 	Training Loss: 0.022303 , computed in 52.90512537956238 seconds for 528 samples
+INFO: Early stopping counter 10 of 1500 with -0.0060722436755895615
+Epoch: 645 	Training Loss: 0.021402 , computed in 48.99547219276428 seconds for 528 samples
+Epoch: 646 	Training Loss: 0.022247 , computed in 52.99927878379822 seconds for 528 samples
+Epoch: 647 	Training Loss: 0.022211 , computed in 52.583860874176025 seconds for 528 samples
+Epoch: 648 	Training Loss: 0.022298 , computed in 83.14109754562378 seconds for 528 samples
+Epoch: 649 	Training Loss: 0.022180 , computed in 49.70674991607666 seconds for 528 samples
+INFO: Early stopping counter 11 of 1500 with -0.007843788713216782
+Epoch: 650 	Training Loss: 0.021191 , computed in 50.80605721473694 seconds for 528 samples
+Epoch: 651 	Training Loss: 0.024075 , computed in 50.21212029457092 seconds for 528 samples
+Epoch: 652 	Training Loss: 0.021777 , computed in 46.45472764968872 seconds for 528 samples
+Epoch: 653 	Training Loss: 0.023743 , computed in 79.90009117126465 seconds for 528 samples
+Epoch: 654 	Training Loss: 0.022423 , computed in 52.42338180541992 seconds for 528 samples
+Epoch: 655 	Training Loss: 0.021652 , computed in 52.391570806503296 seconds for 528 samples
+Epoch: 656 	Training Loss: 0.022418 , computed in 49.99958872795105 seconds for 528 samples
+Epoch: 657 	Training Loss: 0.022565 , computed in 50.05597257614136 seconds for 528 samples
+Exception in thread Thread-11:
+Traceback (most recent call last):
+  File "/home/tanzl/miniconda3/envs/thor1/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/home/tanzl/miniconda3/envs/thor1/lib/python3.8/threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/tanzl/miniconda3/envs/thor1/lib/python3.8/site-packages/wandb/filesync/step_upload.py", line 118, in _thread_body
+    self._handle_event(event)
+  File "/home/tanzl/miniconda3/envs/thor1/lib/python3.8/site-packages/wandb/filesync/step_upload.py", line 180, in _handle_event
+    self._start_upload_job(event)
+  File "/home/tanzl/miniconda3/envs/thor1/lib/python3.8/site-packages/wandb/filesync/step_upload.py", line 192, in _start_upload_job
+    self._spawn_upload(event)
+  File "/home/tanzl/miniconda3/envs/thor1/lib/python3.8/site-packages/wandb/filesync/step_upload.py", line 227, in _spawn_upload
+    self._pool.submit(run_and_notify)
+  File "/home/tanzl/miniconda3/envs/thor1/lib/python3.8/concurrent/futures/thread.py", line 179, in submit
+    raise RuntimeError('cannot schedule new futures after shutdown')
+RuntimeError: cannot schedule new futures after shutdown
