@@ -47,7 +47,7 @@ CUDA_VISIBLE_DEVICES=2 nohup python test2.py --noise_level 350 --batch_size 4 --
 CUDA_VISIBLE_DEVICES=2  python test2.py --noise_level 350 --batch_size 2 --verbose --config_path '/home/tanzl/code/githubdemo/THOR_DDPM/projects/thor/configs/mood_brainMRI/mood_brainMRI.yaml' --pt_path '/home/tanzl/code/githubdemo/THOR_DDPM/weights/thor/mood_brainMRI/augtrained/2024_08_06_21_53_47_417436/best_model.pt' --path_png '/home/tanzl/code/githubdemo/THOR_DDPM/data/brainMRI/png/toy/'
 
 
-CUDA_VISIBLE_DEVICES=2 nohup python test2.py --noise_level 350 --batch_size 4 --verbose \
+CUDA_VISIBLE_DEVICES=2 nohup python submit.py --noise_level 350 --batch_size 4 --verbose \
                             --config_path '/home/tanzl/code/githubdemo/THOR_DDPM/projects/thor/configs/mood_brainMRI/mood_brainMRI.yaml' \
                             --pt_path '/home/tanzl/code/githubdemo/THOR_DDPM/weights/thor/mood_brainMRI/augtrained/2024_08_06_21_53_47_417436/best_model.pt' \
                             --path_png '/home/tanzl/code/githubdemo/THOR_DDPM/data/brainMRI/png/toy/'  \
@@ -75,3 +75,20 @@ CUDA_VISIBLE_DEVICES=2 nohup python test2.py --noise_level 350 --batch_size 1 --
                             --path_png '/home/tanzl/code/githubdemo/THOR_DDPM/data/abtomMRI/png/toy/'  \
                             --save_path_img '/home/tanzl/code/githubdemo/THOR_DDPM/model_design/test_aug_img_abtom/' \
                             --save_path_data '/home/tanzl/code/githubdemo/THOR_DDPM/model_design/test_aug_data_abtom/' >> log_temp_aug_abtom.log 2>&1 &
+
+
+
+# 检测nii.gz
+
+CUDA_VISIBLE_DEVICES=2 nohup python submit.py --noise_level 350 --batch_size 4 --verbose \
+                            --config_path '/home/tanzl/code/githubdemo/THOR_DDPM/projects/thor/configs/mood_brainMRI/mood_brainMRI.yaml' \
+                            --pt_path '/home/tanzl/code/githubdemo/THOR_DDPM/weights/thor/mood_brainMRI/augtrained/2024_08_06_21_53_47_417436/best_model.pt' \
+                            --input_dir '/home/tanzl/data/mood/brainMRI/toy/'  \
+                            --output_dir '/home/tanzl/data/mood/brainMRI/output_toy/output_nii_gz/' >> log_temp_aug.log 2>&1 &
+
+
+python run.py  --config_path '/home/tanzl/code/githubdemo/THOR_DDPM/projects/thor/configs/mood_brainMRI/mood_brainMRI.yaml' \
+                --pt_path '/home/tanzl/code/githubdemo/THOR_DDPM/weights/thor/mood_brainMRI/augtrained/2024_08_06_21_53_47_417436/best_model.pt' \
+                --input_dir '/home/tanzl/data/mood/brainMRI/toy/'  \
+                --pixel_output_dir '/home/tanzl/data/mood/brainMRI/output_toy/output_nii_gz/' \
+                --sample_output_dir '/home/tanzl/data/mood/brainMRI/output_toy/output_nii_gz_txt/'
